@@ -10,4 +10,15 @@ config.resolve.modules = [
 
 config.module.rules[0].exclude = /node_modules\/(?!(query-string|split-on-first|strict-uri-encode|@edx))/;
 
+config.devServer = {
+  ...config.devServer,
+  client: {
+    ...config.devServer?.client,
+    overlay: {
+      errors: true,
+      warnings: false,
+    },
+  },
+};
+
 module.exports = config;

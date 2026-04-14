@@ -53,9 +53,6 @@ describe('useGradesViewData', () => {
       expect(out.stepHeadings.filter).toEqual(messages.filterStepHeading.defaultMessage);
       expect(out.stepHeadings.gradebook).toEqual(messages.gradebookStepHeading.defaultMessage);
     });
-    test('mastersHint', () => {
-      expect(out.mastersHint).toEqual(messages.mastersHint.defaultMessage);
-    });
     describe('handleFilterBadgeClose', () => {
       it('resets filters locally and in query params, and fetches grades', () => {
         const filters = ['some', 'filter', 'names'];

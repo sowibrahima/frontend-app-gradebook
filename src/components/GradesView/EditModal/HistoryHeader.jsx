@@ -9,9 +9,9 @@ import PropTypes from 'prop-types';
  * @param {string} value - header value
  */
 const HistoryHeader = ({ id, label, value }) => (
-  <div>
-    <div className={`grade-history-header grade-history-${id}`}>{label}: </div>
-    <div>{value}</div>
+  <div className={`grade-history-card grade-history-${id}`}>
+    <div className="grade-history-card__label">{label}</div>
+    <div className="grade-history-card__value">{value ?? '—'}</div>
   </div>
 );
 HistoryHeader.defaultProps = {

@@ -3,20 +3,20 @@ import { Route, Routes } from 'react-router-dom';
 
 import { AppProvider } from '@edx/frontend-platform/react';
 
-import { FooterSlot } from '@edx/frontend-component-footer';
 import Header from '@edx/frontend-component-header';
 
 import store from 'data/store';
 import GradebookPage from 'containers/GradebookPage';
 import './App.scss';
 import Head from './head/Head';
+import WutiFooter from './components/WutiFooter';
 
 const App = () => (
   <AppProvider store={store}>
     <Head />
-    <div>
+    <div className="gradebook-app-shell">
       <Header />
-      <main>
+      <main id="main" className="gradebook-app-main">
         <Routes>
           <Route
             path="/:courseId"
@@ -24,7 +24,7 @@ const App = () => (
           />
         </Routes>
       </main>
-      <FooterSlot />
+      <WutiFooter />
     </div>
   </AppProvider>
 );

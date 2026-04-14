@@ -18,7 +18,7 @@ export const FilterMenuToggle = () => {
   return (
     <Button
       id="edit-filters-btn"
-      className="btn-primary align-self-start"
+      className="gradebook-filter-toggle align-self-start"
       onClick={toggleFilterMenu}
     >
       <Icon src={FilterAlt} className="mr-1" /> {formatMessage(messages.editFilters)}

@@ -17,6 +17,7 @@ export const ReasonInput = () => {
       type="text"
       name="reasonForChange"
       data-testid={controlTestId}
+      className="grade-edit-modal__input grade-edit-modal__input--reason"
       {...{ value, onChange, ref }}
     />
   );

@@ -30,11 +30,13 @@ export const OverrideTable = () => {
   ];
 
   return (
-    <DataTable
-      columns={columns}
-      data={tableData}
-      itemCount={tableData.length}
-    />
+    <div className="grade-edit-modal__table">
+      <DataTable
+        columns={columns}
+        data={tableData}
+        itemCount={tableData.length}
+      />
+    </div>
   );
 };
 OverrideTable.propTypes = {};

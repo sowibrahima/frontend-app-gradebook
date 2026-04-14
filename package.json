@@ -47,6 +47,7 @@
     "email-prop-type": "^1.1.7",
     "font-awesome": "4.7.0",
     "history": "4.10.1",
+    "lucide-react": "^0.575.0",
     "prop-types": "15.8.1",
     "query-string": "6.13.0",
     "react": "^18.3.1",

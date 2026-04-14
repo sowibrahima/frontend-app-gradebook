@@ -22,43 +22,51 @@ export const GradesView = ({ updateQueryParams }) => {
   const {
     stepHeadings,
     handleFilterBadgeClose,
-    mastersHint,
   } = useGradesViewData({ updateQueryParams });
 
   return (
-    <>
+    <div className="gradebook-view">
       <SpinnerIcon />
 
       <InterventionsReport />
-      <h3 className="step-message-1">
-        {stepHeadings.filter}
-      </h3>
+      <section className="gradebook-panel gradebook-panel--filters">
+        <div className="gradebook-panel__header">
+          <h3 className="step-message-1">
+            {stepHeadings.filter}
+          </h3>
+        </div>
 
-      <div className="d-flex justify-content-between flex-wrap">
-        <FilterMenuToggle />
-        <SearchControls />
-      </div>
+        <div className="gradebook-toolbar">
+          <FilterMenuToggle />
+          <SearchControls />
+        </div>
 
-      <FilterBadges handleClose={handleFilterBadgeClose} />
-      <StatusAlerts />
+        <FilterBadges handleClose={handleFilterBadgeClose} />
+        <StatusAlerts />
+      </section>
 
-      <h3>{stepHeadings.gradebook}</h3>
+      <section className="gradebook-panel gradebook-panel--grades">
+        <div className="gradebook-panel__header gradebook-panel__header--split">
+          <div className="gradebook-panel__heading-group">
+            <h3>{stepHeadings.gradebook}</h3>
+            <div className="gradebook-results-label">
+              <FilteredUsersLabel />
+            </div>
+          </div>
+          <div className="gradebook-scorebar">
+            <ScoreViewInput />
+            <BulkManagementControls />
+          </div>
+        </div>
 
-      <div className="d-flex justify-content-between align-items-center mb-2">
-        <ScoreViewInput />
-        <BulkManagementControls />
-      </div>
+        <GradebookTable />
 
-      <FilteredUsersLabel />
-
-      <GradebookTable />
-
-      <PageButtons />
-      <p>* {mastersHint}</p>
+        <PageButtons />
+      </section>
       <EditModal />
 
       <ImportSuccessToast />
-    </>
+    </div>
   );
 };
 

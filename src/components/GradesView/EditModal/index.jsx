@@ -39,25 +39,28 @@ export const EditModal = () => {
       size="xl"
       hasCloseButton
       isFullscreenOnMobile
+      className="grade-edit-modal"
     >
       <ModalDialog.Body>
-        <div>
+        <div className="grade-edit-modal__body">
           <ModalHeaders />
-          <Alert variant="danger" show={!!error} dismissible={false}>
+          <Alert variant="danger" show={!!error} dismissible={false} className="grade-edit-modal__alert">
             {error}
           </Alert>
           <OverrideTable />
-          <div>{formatMessage(messages.visibility)}</div>
-          <div>{formatMessage(messages.saveVisibility)}</div>
+          <div className="grade-edit-modal__notes">
+            <p className="grade-edit-modal__note">{formatMessage(messages.visibility)}</p>
+            <p className="grade-edit-modal__note">{formatMessage(messages.saveVisibility)}</p>
+          </div>
         </div>
       </ModalDialog.Body>
 
       <ModalDialog.Footer>
-        <ActionRow>
-          <ModalDialog.CloseButton variant="tertiary">
+        <ActionRow className="grade-edit-modal__actions">
+          <ModalDialog.CloseButton variant="tertiary" className="grade-edit-modal__cancel">
             {formatMessage(messages.closeText)}
           </ModalDialog.CloseButton>
-          <Button variant="primary" onClick={handleAdjustedGradeClick}>
+          <Button variant="primary" className="grade-edit-modal__save" onClick={handleAdjustedGradeClick}>
             {formatMessage(messages.saveGrade)}
           </Button>
         </ActionRow>

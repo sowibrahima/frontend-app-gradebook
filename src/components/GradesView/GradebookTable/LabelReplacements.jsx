@@ -47,13 +47,6 @@ const TotalGradeLabelReplacement = () => {
 };
 
 /**
- * Asterisk to display next to heading labels that are only used for masters students
- */
-const mastersOnlyFieldAsterisk = (
-  <span className="font-weight-normal">*</span>
-);
-
-/**
  * <UsernameLabelReplacement />
  * Username column header.  Lists that Student Key is possibly available
  */
@@ -66,22 +59,7 @@ const UsernameLabelReplacement = () => {
       </div>
       <div className="font-weight-normal student-key">
         {formatMessage(messages.studentKeyLabel)}
-        { mastersOnlyFieldAsterisk }
       </div>
-    </div>
-  );
-};
-
-/**
- * <MastersOnlyLabelReplacement {message}>
- * Column header for fields that are only available for masters students
- */
-const MastersOnlyLabelReplacement = (message) => {
-  const { formatMessage } = useIntl();
-  return (
-    <div>
-      {formatMessage(message)}
-      { mastersOnlyFieldAsterisk }
     </div>
   );
 };
@@ -89,5 +67,4 @@ const MastersOnlyLabelReplacement = (message) => {
 export default StrictDict({
   TotalGradeLabelReplacement,
   UsernameLabelReplacement,
-  MastersOnlyLabelReplacement,
 });

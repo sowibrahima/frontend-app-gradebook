@@ -14,7 +14,6 @@ const hookProps = {
     gradebook: 'gradebook-step-heading',
   },
   handleFilterBadgeClose: jest.fn().mockName('hooks.handleFilterBadgeClose'),
-  mastersHint: 'test-masters-hint',
 };
 useGradesViewData.mockReturnValue(hookProps);
 

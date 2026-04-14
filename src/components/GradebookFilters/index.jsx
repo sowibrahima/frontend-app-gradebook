@@ -28,7 +28,10 @@ export const GradebookFilters = ({ updateQueryParams }) => {
   return (
     <>
       <div className="filter-sidebar-header">
-        <h2><Icon className="fa fa-filter" /></h2>
+        <div className="filter-sidebar-header__title">
+          <Icon className="fa fa-filter" />
+          <h2>{formatMessage(messages.filtersTitle)}</h2>
+        </div>
         <IconButton
           className="p-1"
           onClick={closeMenu}

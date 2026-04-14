@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useIntl } from '@edx/frontend-platform/i18n';
-import { Button } from '@openedx/paragon';
+import { Alert, Button } from '@openedx/paragon';
 
 import { instructorDashboardUrl } from 'data/services/lms/urls';
 import useGradebookHeaderData from './hooks';
@@ -19,31 +19,34 @@ export const GradebookHeader = () => {
   } = useGradebookHeaderData();
   const dashboardUrl = instructorDashboardUrl();
   return (
-    <div className="gradebook-header">
-      <a href={dashboardUrl} className="mb-3">
-        <span aria-hidden="true">{'<< '}</span>
+    <header className="gradebook-header">
+      <a href={dashboardUrl} className="gradebook-header__back-link">
+        <span aria-hidden="true">← </span>
         {formatMessage(messages.backToDashboard)}
       </a>
-      <h1>{formatMessage(messages.gradebook)}</h1>
-      <div className="subtitle-row d-flex justify-content-between align-items-center">
-        <h2 className="text-break">{courseId}</h2>
+      <div className="gradebook-header__body">
+        <div className="gradebook-header__copy">
+          <p className="gradebook-header__eyebrow">{formatMessage(messages.gradebook)}</p>
+          <h1>{formatMessage(messages.gradebook)}</h1>
+          <h2 className="text-break">{courseId}</h2>
+        </div>
         {showBulkManagement && (
-          <Button variant="tertiary" onClick={handleToggleViewClick}>
+          <Button className="gradebook-header__toggle" variant="tertiary" onClick={handleToggleViewClick}>
             {formatMessage(toggleViewMessage)}
           </Button>
         )}
       </div>
       {areGradesFrozen && (
-        <div className="alert alert-warning" role="alert">
+        <Alert variant="warning" dismissible={false} className="gradebook-header__alert">
           {formatMessage(messages.frozenWarning)}
-        </div>
+        </Alert>
       )}
       {(canUserViewGradebook === false) && (
-        <div className="alert alert-warning" role="alert">
+        <Alert variant="danger" dismissible={false} className="gradebook-header__alert">
           {formatMessage(messages.unauthorizedWarning)}
-        </div>
+        </Alert>
       )}
-    </div>
+    </header>
   );
 };
 

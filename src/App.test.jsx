@@ -16,13 +16,14 @@ jest.mock('@edx/frontend-component-header', () => ({
   default: () => <div>Header</div>,
 }));
 
-jest.mock('@edx/frontend-component-footer', () => ({
-  FooterSlot: () => <div>Footer</div>,
-}));
-
 jest.mock('./head/Head', () => ({
   __esModule: true,
   default: () => <div>Head</div>,
+}));
+
+jest.mock('./components/WutiFooter', () => ({
+  __esModule: true,
+  default: () => <div>Footer</div>,
 }));
 
 jest.mock('containers/GradebookPage', () => ({

@@ -10,6 +10,7 @@ import * as module from './app';
 export const initialize = (courseId, urlQuery) => (dispatch) => {
   dispatch(actions.app.setCourseId(courseId));
   dispatch(actions.filters.initialize(urlQuery));
+  dispatch(actions.app.setSearchValue(urlQuery.user_contains || ''));
   dispatch(fetchRoles());
 };
 

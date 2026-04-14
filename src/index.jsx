@@ -10,6 +10,7 @@ import {
   mergeConfig,
   subscribe,
 } from '@edx/frontend-platform';
+import '@edx/frontend-component-header';
 
 import lightning from './lightning';
 

@@ -8,12 +8,9 @@ export const PageButtons = () => {
   const { prev, next } = usePageButtonsData();
 
   return (
-    <div
-      className="d-flex justify-content-center"
-      style={{ paddingBottom: '20px' }}
-    >
+    <div className="gradebook-page-buttons">
       <Button
-        style={{ margin: '20px' }}
+        className="gradebook-page-buttons__button"
         variant="outline-primary"
         disabled={prev.disabled}
         onClick={prev.onClick}
@@ -21,7 +18,7 @@ export const PageButtons = () => {
         {prev.text}
       </Button>
       <Button
-        style={{ margin: '20px' }}
+        className="gradebook-page-buttons__button"
         variant="outline-primary"
         disabled={next.disabled}
         onClick={next.onClick}

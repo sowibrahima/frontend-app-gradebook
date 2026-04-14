@@ -26,9 +26,9 @@ export const useGradebookTableData = () => {
     } else if (heading === Headings.username) {
       label = <LabelReplacements.UsernameLabelReplacement />;
     } else if (heading === Headings.email) {
-      label = <LabelReplacements.MastersOnlyLabelReplacement {...messages.emailHeading} />;
+      label = formatMessage(messages.emailHeading);
     } else if (heading === Headings.fullName) {
-      label = <LabelReplacements.MastersOnlyLabelReplacement {...messages.fullNameHeading} />;
+      label = formatMessage(messages.fullNameHeading);
     } else {
       label = heading;
     }
@@ -39,6 +39,7 @@ export const useGradebookTableData = () => {
     [Headings.username]: (
       <Fields.Username username={entry.username} userKey={entry.external_user_key} />
     ),
+    [Headings.fullName]: (<Fields.Text value={entry.full_name || entry.username} />),
     [Headings.email]: (<Fields.Text value={entry.email} />),
     [Headings.totalGrade]: `${roundGrade(entry.percent * 100)}${getLocalizedPercentSign()}`,
     ...entry.section_breakdown.reduce((acc, subsection) => ({

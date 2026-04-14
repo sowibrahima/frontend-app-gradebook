@@ -66,10 +66,50 @@ const messages = defineMessages({
     defaultMessage: 'Close Filters',
     description: 'Button label for Close button in Gradebook Filters',
   },
+  filtersTitle: {
+    id: 'gradebook.GradebookFilters.filtersTitle',
+    defaultMessage: 'Filters',
+    description: 'Title for the filter sidebar in the gradebook',
+  },
   apply: {
     id: 'gradebook.GradebookFilters.apply',
     defaultMessage: 'Apply',
     description: 'Apply filter button text',
+  },
+  allOption: {
+    id: 'gradebook.GradebookFilters.allOption',
+    defaultMessage: 'All',
+    description: 'Generic all option for gradebook filter dropdowns',
+  },
+  removeFilter: {
+    id: 'gradebook.GradebookFilters.removeFilter',
+    defaultMessage: 'Remove filter',
+    description: 'Screen-reader label for removing a selected filter badge',
+  },
+  footerNav: {
+    id: 'gradebook.footer.nav',
+    defaultMessage: 'Footer',
+    description: 'Aria label for the footer navigation',
+  },
+  footerHelp: {
+    id: 'gradebook.footer.help',
+    defaultMessage: 'Help center',
+    description: 'Footer help link label',
+  },
+  footerTerms: {
+    id: 'gradebook.footer.terms',
+    defaultMessage: 'Terms',
+    description: 'Footer terms link label',
+  },
+  footerPrivacy: {
+    id: 'gradebook.footer.privacy',
+    defaultMessage: 'Privacy',
+    description: 'Footer privacy link label',
+  },
+  footerRights: {
+    id: 'gradebook.footer.rights',
+    defaultMessage: 'All rights reserved.',
+    description: 'Footer copyright suffix',
   },
 });
 

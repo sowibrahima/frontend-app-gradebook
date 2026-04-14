@@ -11,11 +11,6 @@ const messages = defineMessages({
     defaultMessage: 'Step 2: View or Modify Individual Grades',
     description: 'Alert text for invalid minimum course grade',
   },
-  mastersHint: {
-    id: 'gradebook.GradesView.mastersHint',
-    defaultMessage: "available for learners in the Master's track only",
-    description: 'Masters feature availability hint on Grades Tab',
-  },
 });
 
 export default messages;

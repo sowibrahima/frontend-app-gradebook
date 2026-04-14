@@ -5,6 +5,7 @@ import { Button } from '@openedx/paragon';
 import { useIntl } from '@edx/frontend-platform/i18n';
 
 import { selectors } from 'data/redux/hooks';
+import messages from '../../GradebookFilters/messages';
 
 /**
  * FilterBadge
@@ -38,7 +39,7 @@ export const FilterBadge = ({
         </span>
         <Button
           className="btn-info"
-          aria-label="close"
+          aria-label={formatMessage(messages.removeFilter)}
           onClick={handleClose(connectedFilters)}
         >
           <span aria-hidden="true">&times;</span>

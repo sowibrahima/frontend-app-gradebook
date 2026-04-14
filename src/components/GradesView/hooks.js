@@ -23,7 +23,6 @@ export const useGradesViewData = ({ updateQueryParams }) => {
       gradebook: formatMessage(messages.gradebookStepHeading),
     },
     handleFilterBadgeClose,
-    mastersHint: formatMessage(messages.mastersHint),
   };
 };
 

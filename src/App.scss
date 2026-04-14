@@ -6,10 +6,364 @@ $fa-font-path: "~font-awesome/fonts";
 
 $input-focus-box-shadow: var(--pgn-elevation-form-input-base); // hack to get upgrade to paragon 4.0.0 to work
 
-@import "~@edx/frontend-component-header/dist/index";
-@import "~@edx/frontend-component-footer/dist/_footer";
-
 @import "./components/GradesView/GradesView";
 @import "./components/BulkManagementHistoryView/BulkManagementHistoryView";
 @import "./components/WithSidebar/WithSidebar";
 @import "./components/GradebookFilters/GradebookFilters";
+
+$wuti-bg: #fafaf7;
+$wuti-surface: #ffffff;
+$wuti-surface-muted: #f7f4ee;
+$wuti-border: #eae4d8;
+$wuti-border-strong: #ddd3c0;
+$wuti-text: #1a1a2e;
+$wuti-text-muted: #6b6b6b;
+$wuti-accent: #590d22;
+$wuti-accent-soft: rgba(89, 13, 34, 0.08);
+$wuti-warning: #fff6db;
+$wuti-danger: #fff0f1;
+$wuti-success: #eef8f0;
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background: $wuti-bg;
+  color: $wuti-text;
+}
+
+.gradebook-app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: $wuti-bg;
+  color: $wuti-text;
+}
+
+.gradebook-app-main {
+  flex: 1 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.gradebook-page {
+  width: 100%;
+}
+
+.gradebook-content {
+  width: min(1400px, calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+.gradebook-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  padding: 1.75rem 2rem;
+  border: 1px solid $wuti-border;
+  border-radius: 1.5rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, $wuti-surface-muted 100%);
+}
+
+.gradebook-header__back-link {
+  width: fit-content;
+  color: $wuti-accent;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: darken($wuti-accent, 8%);
+    text-decoration: none;
+  }
+}
+
+.gradebook-header__body {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.gradebook-header__copy {
+  min-width: 0;
+}
+
+.gradebook-header__eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $wuti-accent;
+  font-weight: 700;
+}
+
+.gradebook-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.gradebook-header h2 {
+  margin: 0.4rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  color: $wuti-text-muted;
+  font-weight: 600;
+}
+
+.gradebook-header__toggle.btn {
+  border-radius: 999px;
+  border: 1px solid $wuti-border;
+  background: $wuti-surface;
+  color: $wuti-text;
+  font-weight: 700;
+  padding: 0.8rem 1.15rem;
+  box-shadow: none;
+
+  &:hover,
+  &:focus {
+    border-color: $wuti-border-strong;
+    background: $wuti-surface-muted;
+    color: $wuti-text;
+    box-shadow: none;
+  }
+}
+
+.gradebook-header__alert.alert {
+  margin: 0;
+  border-radius: 1rem;
+  border: 1px solid $wuti-border;
+}
+
+.gradebook-view {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.gradebook-panel {
+  border: 1px solid $wuti-border;
+  border-radius: 1.5rem;
+  background: $wuti-surface;
+  padding: 1.5rem;
+}
+
+.gradebook-panel__header {
+  margin-bottom: 1rem;
+}
+
+.gradebook-panel__header--split {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.gradebook-panel__heading-group h3,
+.gradebook-panel h3,
+.bulk-management-history-view h4 {
+  margin: 0;
+  color: $wuti-text;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.gradebook-toolbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.gradebook-scorebar {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.gradebook-results-label {
+  margin-top: 0.5rem;
+  color: $wuti-text-muted;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.gradebook-filter-toggle.btn {
+  border-radius: 999px;
+  border: 1px solid $wuti-accent;
+  background: $wuti-accent;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.8rem 1.1rem;
+  box-shadow: none;
+
+  &:hover,
+  &:focus {
+    background: darken($wuti-accent, 4%);
+    border-color: darken($wuti-accent, 4%);
+    color: #fff;
+    box-shadow: none;
+  }
+}
+
+.search-container {
+  width: min(100%, 24rem);
+
+  .pgn__searchfield-form {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid $wuti-border;
+    border-radius: 999px;
+    background: $wuti-surface;
+  }
+
+  label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .pgn__form-control-decorator-group {
+    flex: 1;
+  }
+
+  input.form-control {
+    border: 0;
+    background: transparent;
+    color: $wuti-text;
+    padding: 0;
+    min-height: auto;
+    box-shadow: none;
+
+    &::placeholder {
+      color: rgba(107, 107, 107, 0.78);
+    }
+  }
+
+  .btn-icon {
+    color: $wuti-text-muted;
+  }
+
+  .search-help-text {
+    margin: 0.5rem 1rem 0;
+    color: $wuti-text-muted !important;
+    font-size: 0.85rem;
+  }
+}
+
+.gradebook-page-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+  padding-top: 1.25rem;
+}
+
+.gradebook-page-buttons__button.btn {
+  min-width: 9rem;
+  margin: 0;
+  border-radius: 999px;
+  border-color: $wuti-border-strong;
+  color: $wuti-text;
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    background: $wuti-surface-muted;
+    border-color: $wuti-border-strong;
+    color: $wuti-text;
+  }
+}
+
+.wuti-footer {
+  margin-top: auto;
+  border-top: 1px solid rgba(26, 26, 46, 0.06);
+  background: $wuti-bg;
+}
+
+.wuti-footer__inner {
+  width: min(1400px, calc(100% - 3rem));
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.wuti-footer__copy,
+.wuti-footer__link {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: rgba(107, 107, 107, 0.9);
+  text-decoration: none;
+}
+
+.wuti-footer__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.wuti-footer__link:hover {
+  color: $wuti-text;
+  text-decoration: none;
+}
+
+@media (max-width: 991.98px) {
+  .gradebook-app-main {
+    padding: 1.25rem 0 3rem;
+  }
+
+  .gradebook-content,
+  .wuti-footer__inner {
+    width: min(100%, calc(100% - 1.5rem));
+  }
+
+  .gradebook-header,
+  .gradebook-panel {
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+  }
+
+  .gradebook-header__body,
+  .gradebook-panel__header--split,
+  .gradebook-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+
+  .gradebook-scorebar {
+    align-items: stretch;
+  }
+
+  .wuti-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wuti-footer__nav {
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+  }
+}

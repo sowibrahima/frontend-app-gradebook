@@ -1,6 +1,32 @@
 .filter-sidebar-header {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-    padding: 15px;
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid #eae4d8;
+
+    h2 {
+      margin: 0;
+      font-size: 1rem;
+      color: #1a1a2e;
+    }
+}
+
+.filter-sidebar-header__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: #1a1a2e;
+}
+
+.sidebar {
+  .filter-group {
+    padding: 0 1.5rem;
+
+    .collapsible-trigger,
+    .pgn__collapsible-trigger {
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+  }
 }

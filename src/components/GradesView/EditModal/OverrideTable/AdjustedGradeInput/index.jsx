@@ -16,14 +16,15 @@ export const AdjustedGradeInput = () => {
     hintText,
   } = useAdjustedGradeInputData();
   return (
-    <span>
+    <span className="grade-edit-modal__adjusted-grade">
       <Form.Control
         type="text"
         name="adjustedGradeValue"
         value={value}
         onChange={onChange}
+        className="grade-edit-modal__input grade-edit-modal__input--grade"
       />
-      {hintText}
+      <span className="grade-edit-modal__grade-hint">{hintText}</span>
     </span>
   );
 };

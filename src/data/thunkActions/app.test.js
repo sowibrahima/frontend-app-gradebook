@@ -82,12 +82,18 @@ describe('app thunkActions', () => {
   describe('initialize', () => {
     it('loads course id, and initailzes filters from urlQuery before fetching roles', () => {
       const courseId = 'an ID';
-      const urlQuery = { do: 'you', wanna: 'build', a: 'snowman' };
+      const urlQuery = {
+        do: 'you',
+        wanna: 'build',
+        a: 'snowman',
+        user_contains: 'elsa',
+      };
       const dispatch = jest.fn();
       thunkActions.initialize(courseId, urlQuery)(dispatch);
       expect(dispatch.mock.calls[0]).toEqual([actions.app.setCourseId(courseId)]);
       expect(dispatch.mock.calls[1]).toEqual([actions.filters.initialize(urlQuery)]);
-      expect(dispatch.mock.calls[2]).toEqual([fetchRoles()]);
+      expect(dispatch.mock.calls[2]).toEqual([actions.app.setSearchValue('elsa')]);
+      expect(dispatch.mock.calls[3]).toEqual([fetchRoles()]);
     });
   });
 });

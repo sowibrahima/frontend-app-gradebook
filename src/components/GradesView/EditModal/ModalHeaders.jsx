@@ -25,7 +25,7 @@ export const ModalHeaders = () => {
   const { gradeOverrideCurrentEarnedGradedOverride, gradeOriginalEarnedGraded } = selectors.grades.useGradeData();
   const { formatMessage } = useIntl();
   return (
-    <div>
+    <div className="grade-edit-modal__meta">
       <HistoryHeader
         id={HistoryKeys.assignment}
         label={formatMessage(messages.assignmentHeader)}
